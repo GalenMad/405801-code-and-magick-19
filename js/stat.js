@@ -14,7 +14,7 @@ window.renderStatistics = function (ctx, names, times) {
     }
   }
 
-  function getMaxOfArray (numArray) {
+  function getMaxOfArray(numArray) {
     var maxNumber = numArray[0];
     for (var i = 1; i < numArray.length; i++) {
       if (maxNumber <= numArray[i]) {
