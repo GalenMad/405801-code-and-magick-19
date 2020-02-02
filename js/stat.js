@@ -1,12 +1,12 @@
 'use strict';
 
-function renderStatistics (ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
 
-  function getRandomInteger (min, max) {
+  function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function generateUserColor (currentName) {
+  function generateUserColor(currentName) {
     if (currentName === 'Вы') {
       return 'rgba(255, 0, 0, 1)';
     } else {
@@ -24,7 +24,7 @@ function renderStatistics (ctx, names, times) {
     return Math.round(maxNumber);
   }
 
-  function renderRectangles (numArray) {
+  function renderRectangles(numArray) {
     var renderPoint = 135;
     var coefficient = 145 / getMaxOfArray(numArray);
 
@@ -53,4 +53,4 @@ function renderStatistics (ctx, names, times) {
   ctx.fillText('Ура, вы победили!', 120, 30);
   ctx.fillText('Список результатов:', 120, 50);
   renderRectangles(times);
-}
+};
