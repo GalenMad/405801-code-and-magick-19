@@ -22,7 +22,7 @@ var setupNameInput = setupWindow.querySelector('.setup-user-name');
 
 var setupPlayer = setupWindow.querySelector('.setup-player');
 var playerWizardCoat = setupPlayer.querySelector('.wizard-coat');
-// var playerWizardEyes = setupPlayer.querySelector('.wizard-eyes');
+var playerWizardEyes = setupPlayer.querySelector('.wizard-eyes');
 var playerWizardFireball = setupPlayer.querySelector('.setup-fireball-wrap');
 
 var playerCoatIndex = coatColors.indexOf(setupPlayer.querySelector('input[name="coat-color"]').value);
