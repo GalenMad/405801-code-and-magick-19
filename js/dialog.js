@@ -41,7 +41,7 @@
       if (dragged) {
         var onClickPreventDefault = function (clickEvt) {
           clickEvt.preventDefault();
-          uploadElement.removeEventListener('click', onClickPreventDefault)
+          uploadElement.removeEventListener('click', onClickPreventDefault);
         };
         uploadElement.addEventListener('click', onClickPreventDefault);
       }
