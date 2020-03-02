@@ -1,7 +1,5 @@
 'use strict';
-
-window.renderStatistics = function (ctx, names, times) {
-
+(function () {
   function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -24,14 +22,26 @@ window.renderStatistics = function (ctx, names, times) {
     return Math.round(maxNumber);
   }
 
-  function renderRectangles(numArray) {
-    var renderPoint = 135;
-    var coefficient = 145 / getMaxOfArray(numArray);
+  window.renderStatistics = function (ctx, names, times) {
 
-    for (var i = 0; i < numArray.length; i++) {
-      var currentRecord = '' + Math.round(numArray[i]);
+    var renderPoint = 135;
+    var coefficient = 145 / getMaxOfArray(times);
+
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(110, 20, 420, 270);
+    ctx.fillStyle = 'white';
+    ctx.strokeRect(100, 10, 420, 270);
+    ctx.fillRect(100, 10, 420, 270);
+    ctx.fillStyle = 'black';
+    ctx.font = '16px PT Mono';
+    ctx.textBaseline = 'hanging';
+    ctx.fillText('Ура, вы победили!', 120, 30);
+    ctx.fillText('Список результатов:', 120, 50);
+
+    for (var i = 0; i < times.length; i++) {
+      var currentRecord = '' + Math.round(times[i]);
       var currentName = names[i];
-      var rectangleHeight = -(coefficient * numArray[i]);
+      var rectangleHeight = -(coefficient * times[i]);
       var recordPosition = (240 + rectangleHeight - 20);
       ctx.fillStyle = 'black';
       ctx.fillText(currentRecord, renderPoint, recordPosition);
@@ -40,17 +50,5 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillRect(renderPoint, 240, 40, rectangleHeight);
       renderPoint += 90;
     }
-  }
-
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  ctx.fillRect(110, 20, 420, 270);
-  ctx.fillStyle = 'white';
-  ctx.strokeRect(100, 10, 420, 270);
-  ctx.fillRect(100, 10, 420, 270);
-  ctx.fillStyle = 'black';
-  ctx.font = '16px PT Mono';
-  ctx.textBaseline = 'hanging';
-  ctx.fillText('Ура, вы победили!', 120, 30);
-  ctx.fillText('Список результатов:', 120, 50);
-  renderRectangles(times);
-};
+  };
+})();
